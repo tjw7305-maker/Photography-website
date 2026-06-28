@@ -199,6 +199,7 @@ main {
   overflow: hidden;
   cursor: pointer;
   position: relative;
+  aspect-ratio: auto;
 }
 
 .dynamic-grid .grid-item img {

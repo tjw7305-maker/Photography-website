@@ -1,4 +1,4 @@
-/* ===== SHOTBYTEDDY.COM — Dark Minimal Photography Portfolio ===== */
+/* ===== SHOTBYTEDDY.COM â Dark Minimal Photography Portfolio ===== */
 
 /* --- Reset & Base --- */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -183,6 +183,64 @@ main {
 
 .image-grid.homepage-grid {
   grid-template-columns: repeat(4, 1fr);
+}
+
+/* --- Dynamic Masonry Homepage Grid --- */
+.dynamic-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 6px;
+  padding: 6px 0;
+}
+
+.dynamic-grid .grid-item {
+  aspect-ratio: auto;
+}
+
+.dynamic-grid .grid-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Layout: asymmetric mix of verticals and horizontals */
+.dynamic-grid .grid-item:nth-child(1) { grid-column: span 5; grid-row: span 2; } /* V - mountain sunset hero */
+.dynamic-grid .grid-item:nth-child(2) { grid-column: span 7; grid-row: span 1; } /* H - fall landscape */
+.dynamic-grid .grid-item:nth-child(3) { grid-column: span 3; grid-row: span 1; } /* V - jeronimos (small) */
+.dynamic-grid .grid-item:nth-child(4) { grid-column: span 4; grid-row: span 1; } /* V - porto steam */
+.dynamic-grid .grid-item:nth-child(5) { grid-column: span 8; grid-row: span 1; } /* H - madeira coast wide */
+.dynamic-grid .grid-item:nth-child(6) { grid-column: span 4; grid-row: span 2; } /* V - porto alley (tall) */
+.dynamic-grid .grid-item:nth-child(7) { grid-column: span 4; grid-row: span 1; } /* V - madeira cliffs */
+.dynamic-grid .grid-item:nth-child(8) { grid-column: span 4; grid-row: span 1; } /* V - madeira walls */
+
+@media (max-width: 1024px) {
+  .dynamic-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+  .dynamic-grid .grid-item:nth-child(1) { grid-column: span 3; grid-row: span 2; }
+  .dynamic-grid .grid-item:nth-child(2) { grid-column: span 3; grid-row: span 1; }
+  .dynamic-grid .grid-item:nth-child(3) { grid-column: span 3; grid-row: span 1; }
+  .dynamic-grid .grid-item:nth-child(4) { grid-column: span 3; grid-row: span 1; }
+  .dynamic-grid .grid-item:nth-child(5) { grid-column: span 3; grid-row: span 1; }
+  .dynamic-grid .grid-item:nth-child(6) { grid-column: span 3; grid-row: span 2; }
+  .dynamic-grid .grid-item:nth-child(7) { grid-column: span 3; grid-row: span 1; }
+  .dynamic-grid .grid-item:nth-child(8) { grid-column: span 3; grid-row: span 1; }
+}
+
+@media (max-width: 768px) {
+  .dynamic-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .dynamic-grid .grid-item:nth-child(n) { grid-column: span 1; grid-row: span 1; }
+  .dynamic-grid .grid-item:nth-child(1) { grid-column: span 2; grid-row: span 1; }
+  .dynamic-grid .grid-item:nth-child(5) { grid-column: span 2; grid-row: span 1; }
+}
+
+@media (max-width: 480px) {
+  .dynamic-grid {
+    grid-template-columns: 1fr;
+  }
+  .dynamic-grid .grid-item:nth-child(n) { grid-column: span 1; grid-row: span 1; }
 }
 
 .grid-item {
